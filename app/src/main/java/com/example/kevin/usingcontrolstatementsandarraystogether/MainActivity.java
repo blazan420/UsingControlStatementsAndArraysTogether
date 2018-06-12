@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toast.makeText(this, "OnCreate Method is Called", Toast.LENGTH_LONG).show();
 
         final TextView txtFiveStarsStudent = (TextView) findViewById(R.id.txtFiveStarsStudent);
         final TextView txtFourStarsStudent = (TextView) findViewById(R.id.txtFourStarsStudent);
@@ -51,6 +54,27 @@ public class MainActivity extends AppCompatActivity {
 
         final int[] studentReviews = {5, 3, 4, 2, 4, 5, 1, 3, 2, 5, 5, 3, 2, 3};
 
+        /*for (int index = 0; index < studentReviews.length; index++) {
+
+            if (studentReviews[index] == 5) {
+                ++fiveStarsReview;
+            }
+
+            if (studentReviews[index] == 4) {
+                ++fourStarsReview;
+            }
+
+            if (studentReviews[index] == 3) {
+                ++threeStarsReview;
+            }
+            if (studentReviews[index] == 2) {
+                ++twoStarsReview;
+            }
+            if (studentReviews[index] == 1) {
+                ++oneStarsReview;
+            }
+        }*/
+
         btnResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int index = 0; index < studentReviews.length; index++) {
 
-                        if (studentReviews[index] == 5) {
+                        /*if (studentReviews[index] == 5) {
                             ++fiveStarsReview;
                         }
 
@@ -75,7 +99,28 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (studentReviews[index] == 1) {
                             ++oneStarsReview;
+                        }*/
+
+                        switch (studentReviews[index ]) {
+
+                            case 5:
+                                ++fiveStarsReview;
+                                break;
+                            case 4:
+                                ++fourStarsReview;
+                                break;
+                            case 3:
+                                ++threeStarsReview;
+                                break;
+                            case 2:
+                                ++twoStarsReview;
+                                break;
+                            case 1:
+                                ++oneStarsReview;
+                                break;
                         }
+
+
                     }
 
                     firstTime = false;

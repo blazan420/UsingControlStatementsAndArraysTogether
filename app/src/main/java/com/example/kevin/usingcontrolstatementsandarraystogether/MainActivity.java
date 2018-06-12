@@ -9,6 +9,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    int fiveStarsReview = 0;
+    int fourStarsReview = 0;
+    int threeStarsReview = 0;
+    int twoStarsReview = 0;
+    int oneStarsReview = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         TextView txtTwoStarsStudent = (TextView)findViewById(R.id.txtTwoStarsStudent);
         TextView txtOneStarsStudent = (TextView)findViewById(R.id.txtOneStarsStudent);
 
-        RatingBar rtbFiveStarsStrudent = (RatingBar)findViewById(R.id.rtbFiveStarsStudent);
-        RatingBar rtbFourStarsStrudent = (RatingBar)findViewById(R.id.rtbFourStarsStudent);
-        RatingBar rtbThreeStarsStrudent = (RatingBar)findViewById(R.id.rtbThreeStarsStudent);
-        RatingBar rtbTwoStarsStrudent = (RatingBar)findViewById(R.id.rtbTwoStarsStudent);
-        RatingBar rtbOneStarsStrudent = (RatingBar)findViewById(R.id.rtbOneStarsStudent);
+        RatingBar rtbFiveStarsStudent = (RatingBar)findViewById(R.id.rtbFiveStarsStudent);
+        RatingBar rtbFourStarsStudent = (RatingBar)findViewById(R.id.rtbFourStarsStudent);
+        RatingBar rtbThreeStarsStudent = (RatingBar)findViewById(R.id.rtbThreeStarsStudent);
+        RatingBar rtbTwoStarsStudent = (RatingBar)findViewById(R.id.rtbTwoStarsStudent);
+        RatingBar rtbOneStarsStudent = (RatingBar)findViewById(R.id.rtbOneStarsStudent);
 
         Button btnResults = (Button)findViewById(R.id.btnResults);
 
@@ -34,18 +41,45 @@ public class MainActivity extends AppCompatActivity {
         rtbTwoStarsStrudent.setIsIndicator(true);
         rtbOneStarsStrudent.setIsIndicator(true);*/
 
-        makeThisRatingBarIndicator(rtbFiveStarsStrudent);
-        makeThisRatingBarIndicator(rtbFourStarsStrudent);
-        makeThisRatingBarIndicator(rtbThreeStarsStrudent);
-        makeThisRatingBarIndicator(rtbTwoStarsStrudent);
-        makeThisRatingBarIndicator(rtbOneStarsStrudent);
+        makeThisRatingBarIndicator(rtbFiveStarsStudent);
+        makeThisRatingBarIndicator(rtbFourStarsStudent);
+        makeThisRatingBarIndicator(rtbThreeStarsStudent);
+        makeThisRatingBarIndicator(rtbTwoStarsStudent);
+        makeThisRatingBarIndicator(rtbOneStarsStudent);
 
-        /*btnResults.setOnClickListener(new View.OnClickListener() {
+
+        final int[] studentReviews = {5, 3, 4, 2, 4, 5, 1, 3, 2, 5, 5, 3, 2, 3};
+
+        btnResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                for (int index = 0; index < studentReviews.length; index++) {
+
+                    if (studentReviews[index] == 5) {
+                        ++fiveStarsReview;
+                    }
+
+                    if (studentReviews[index] == 4) {
+                        ++fourStarsReview;
+                    }
+
+                    if (studentReviews[index]  == 3) {
+                        ++threeStarsReview;
+                    }
+                    if (studentReviews[index]  == 2) {
+                        ++twoStarsReview;
+                    }
+                    if (studentReviews[index]  == 1) {
+                        ++oneStarsReview;
+                    }
+
+                }
+
+
+
             }
-        });*/
+        });
 
 
     }

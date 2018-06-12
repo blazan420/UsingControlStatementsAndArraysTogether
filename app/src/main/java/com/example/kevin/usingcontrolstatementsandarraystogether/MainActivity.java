@@ -15,25 +15,26 @@ public class MainActivity extends AppCompatActivity {
     int threeStarsReview = 0;
     int twoStarsReview = 0;
     int oneStarsReview = 0;
+    boolean firstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView txtFiveStarsStudent = (TextView)findViewById(R.id.txtFiveStarsStudent);
-        TextView txtFourStarsStudent = (TextView)findViewById(R.id.txtFourStarsStudent);
-        TextView txtThreeStarsStudent = (TextView)findViewById(R.id.txtThreeStarsStudent);
-        TextView txtTwoStarsStudent = (TextView)findViewById(R.id.txtTwoStarsStudent);
-        TextView txtOneStarsStudent = (TextView)findViewById(R.id.txtOneStarsStudent);
+        final TextView txtFiveStarsStudent = (TextView) findViewById(R.id.txtFiveStarsStudent);
+        final TextView txtFourStarsStudent = (TextView) findViewById(R.id.txtFourStarsStudent);
+        final TextView txtThreeStarsStudent = (TextView) findViewById(R.id.txtThreeStarsStudent);
+        final TextView txtTwoStarsStudent = (TextView) findViewById(R.id.txtTwoStarsStudent);
+        final TextView txtOneStarsStudent = (TextView) findViewById(R.id.txtOneStarsStudent);
 
-        RatingBar rtbFiveStarsStudent = (RatingBar)findViewById(R.id.rtbFiveStarsStudent);
-        RatingBar rtbFourStarsStudent = (RatingBar)findViewById(R.id.rtbFourStarsStudent);
-        RatingBar rtbThreeStarsStudent = (RatingBar)findViewById(R.id.rtbThreeStarsStudent);
-        RatingBar rtbTwoStarsStudent = (RatingBar)findViewById(R.id.rtbTwoStarsStudent);
-        RatingBar rtbOneStarsStudent = (RatingBar)findViewById(R.id.rtbOneStarsStudent);
+        RatingBar rtbFiveStarsStudent = (RatingBar) findViewById(R.id.rtbFiveStarsStudent);
+        RatingBar rtbFourStarsStudent = (RatingBar) findViewById(R.id.rtbFourStarsStudent);
+        RatingBar rtbThreeStarsStudent = (RatingBar) findViewById(R.id.rtbThreeStarsStudent);
+        RatingBar rtbTwoStarsStudent = (RatingBar) findViewById(R.id.rtbTwoStarsStudent);
+        RatingBar rtbOneStarsStudent = (RatingBar) findViewById(R.id.rtbOneStarsStudent);
 
-        Button btnResults = (Button)findViewById(R.id.btnResults);
+        final Button btnResults = (Button) findViewById(R.id.btnResults);
 
         /*rtbFiveStarsStrudent.setIsIndicator(true);
         rtbFourStarsStrudent.setIsIndicator(true);
@@ -54,28 +55,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                for (int index = 0; index < studentReviews.length; index++) {
+                if (firstTime) {
 
-                    if (studentReviews[index] == 5) {
-                        ++fiveStarsReview;
+                    for (int index = 0; index < studentReviews.length; index++) {
+
+                        if (studentReviews[index] == 5) {
+                            ++fiveStarsReview;
+                        }
+
+                        if (studentReviews[index] == 4) {
+                            ++fourStarsReview;
+                        }
+
+                        if (studentReviews[index] == 3) {
+                            ++threeStarsReview;
+                        }
+                        if (studentReviews[index] == 2) {
+                            ++twoStarsReview;
+                        }
+                        if (studentReviews[index] == 1) {
+                            ++oneStarsReview;
+                        }
                     }
 
-                    if (studentReviews[index] == 4) {
-                        ++fourStarsReview;
-                    }
+                    firstTime = false;
 
-                    if (studentReviews[index]  == 3) {
-                        ++threeStarsReview;
-                    }
-                    if (studentReviews[index]  == 2) {
-                        ++twoStarsReview;
-                    }
-                    if (studentReviews[index]  == 1) {
-                        ++oneStarsReview;
-                    }
 
+                    txtFiveStarsStudent.setText(fiveStarsReview + "");
+                    txtFourStarsStudent.setText(fourStarsReview + "");
+                    txtThreeStarsStudent.setText(threeStarsReview + "");
+                    txtTwoStarsStudent.setText(twoStarsReview + "");
+                    txtOneStarsStudent.setText(oneStarsReview + "");
                 }
 
+                // btnResults.setVisibility(View.INVISIBLE);
 
 
             }
